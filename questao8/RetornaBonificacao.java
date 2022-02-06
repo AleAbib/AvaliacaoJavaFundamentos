@@ -9,8 +9,8 @@ public class RetornaBonificacao {
 		
 		//variáveis criadas para armazenamento e leitura de dados
 		Scanner leDados = new Scanner(System.in);
-		String[] nome;
-		int[] salario;
+		String[] nome = null;
+		int[] salario = null;
 		int quantidadeFuncionarios = 0;
 		
 		//Try catch para tratar uma exceção que é quando o usuário insere valores negativos ou letras na quantidade de funcionarios
@@ -19,14 +19,14 @@ public class RetornaBonificacao {
 			//usuário insere quantos funcionários deseja calcular bonificação, de modo que saiba o tamanho do array a ser criado
 			System.out.println("Quantos funcionários você deseja calcular bonificações: ");
 			quantidadeFuncionarios = leDados.nextInt();
-		} catch (InputMismatchException | NegativeArraySizeException excecao) {
+			
+			//Setando o tamanho dos arrays
+			nome = new String[quantidadeFuncionarios];
+			salario = new int[quantidadeFuncionarios];
+		} catch (Exception excecao) {
         	System.out.println("Erro de entrada: variável recebe apenas numerais positivos \n");
         	main(args);
 		}
-		
-		//Setando o tamanho dos arrays
-		nome = new String[quantidadeFuncionarios];
-		salario = new int[quantidadeFuncionarios];
 		
 		//loop que fará o preenchimento do array de funcionários e salários
 		for(int i=0; i < quantidadeFuncionarios; i++) {
